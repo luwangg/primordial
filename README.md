@@ -1,0 +1,113 @@
+# Primordials
+
+A primordial is a certain type of number that contains all the primes less than one half the number as approximate factors of it.  Examples include 69, 1574, and 220085.  The equations to calculate the primordial stem from another type of calculation I discovered that is used to calculate another prime from component
+primes, which always recovers a prime number (or is one integer value off due to floating-point errors). So, the following equations are true:
+
+# The Shape of A Number
+
+The shape of a number is a new property of a number that I've discovered that I'm still analyzing and coalescing but here is the equation I used to calculate the shape:
+
+      1/2 = x*x*cos( shapeX )
+
+# The Sigma of A Number
+
+The sigma of a number is related to the shape of two numbers combined, and has the following equation for its calculation:
+
+      SigmaAB = 2 * acos( min(shapeA, shapeB) / max(shapeA, shapeB) )
+
+# Finding Additional Prime Numbers
+
+To find additional prime numbers, we're going to manipulate the sigma value a bit as follows:
+
+      AnotherPrime = round( 2 * sigmaAB / abs( shapeB - shapeA ) )
+
+Though with this rounding method, I've found you need to use your brain a little bit, if it returns an even number, most likely there are two prime numbers of either side of it, ie returns 6 and you know 5 and 7 are primes.
+
+# Finding the Delta of A Primordial
+
+This uses the sigma of two numbers in a slightly different way, and is the foundation for finding a primordial for any two prime components:
+
+      DeltaAB = (a * b) / SigmaAB
+
+# Finding a Primordial
+
+To find the actual primordial, we manipulate the delta value as follows:
+
+      Primordial = ShapeOfOne * DeltaAB
+
+Where the ShapeOfOne is explained below.
+
+# Shape of One
+
+In order to calculate the shape of a number, I originally started by finding the angle between two numbers, using the modified Pythagorean formula.  I then found that in order to find the shape of a standalone number, you needed to take the shape between zero and the number, however, to take the shape between zero and the number is impossible as the equation would collapse into a simple 0 = 0 or similar.
+
+Therefore, I found the angle between 1 and any number, and then I used experimentation to find the common factor between them, which comes out to the following approximation:
+
+        ShapeOfOne = 0.006817
+
+# Miscellaneous Equations
+
+Here I'm including some extra equations I used and intermediate formulae that I'm working on for such things as decomposing composite numbers into primes and work like that.  These equations are still works in progress where indicated and I'm hoping other people will be able to further this research along!  Thanks in advance!
+
+    * Shape of a Composite Number (used to calculate ShapeOfOne):
+
+      (ab) ^ 2 = a^2 + b^2 - 2 * (ab)^2 * cos(shapeAB)
+
+      where shapeAB is the angle between the numbers a and b
+
+    * Another form of the Shape of a Number formula
+
+      1 = a - 2*cos(shapeA)
+
+    * Work On Factoring Component Numbers Into Prime Factors
+
+      x = acos( 1 / (2b^2) ) - acos( 1 / (2a^2) ) + ( acos( 1 / (2a^2 ) / acos( 1 / (2b^2) ) ) )
+      x = atan( ( b - a ) / 2 ) + cos((a^2) / (b^2))
+
+    * Some Alternate Equations I'm Working On
+
+      Theta(p) = 0.5 * a * b - 2 * p^2
+      p(a,b) = 0.5 * a + 0.5 * b + 2 * (ab)^2
+      Theta(a) = p(a,b) + 2*a*b*cos(Theta(a))
+      Theta(b) = p(a,b) + 2*a*b*cos(Theta(b))
+
+      Theta(a,b) = 2*Theta(a) + 2*Theta(b) - atan((ab)^2)
+
+    * Finally, Even More Equations I'm Working On As Of This Very Moment
+
+      Theta(a,b) = 4a + 4b + 2ab * cos(thetaA) * cos(thetaB)
+
+      Warning! I know these are wrong, and have a modified version beneath them.
+      Theta(a) = 5*a - sin(thetaA) + a * ShapeOfOne
+      Theta(b) = 5*b - sin(thetaB) + b * ShapeOfOne
+
+      ThetaA - 3.5 * a * ShapeOfOne * sin(ThetaA) = X / ShapeOfOne
+
+      X is a number I've found that is related somehow to the value A, I saw it
+      on my calculator and remembered it but had already cleared the screen OOPS!
+
+      ThetaAB = 5*a + 5*b - 3absin(thetaA * thetaB)
+
+    * Here is an additional trigonometric identity that isn't accurate, but spawned from my work so I'd like it stored somewhere in case someone can make sense of it:
+
+        (b - a) / 2 = tan( 1 / b - 1 / a )
+
+# Perfect Encryption Using Primordials (a conjecture)
+
+Primordials are used in the perfect encryption method by using a technique as follows: two or more primordials can be combined to contain multiple sets of primes from various ranges.  Therefore, it is impossible to know exactly which primordials were used, as all prime factors are combined when the primordials are multiplied together, or perhaps combined in some other manner, and since the prime factors are approximate, if you were to select them knowingly (i.e. you had the key), you could determine the two or more primordials used to compose the combined integer, but without the key, you'd be left with a statistics problem trying to figure out which primes were used (because all prime factors are varying levels of approximate, instead of integer values) and as a result, the encryption should be unbreakable without the key.
+
+Since we can combine infinitely many primordials with infinitely many digits, limited only by the space you wish to store the key in, and we can generate them instantly, this encryption technique should be perfect.
+
+Just a thought, however, as I've not the time right now to write an implementation, though the implementation should stem pretty readily from an RSA technique using the known prime factors of the primordials you choose.
+
+So the 'secret' so to speak is exactly which primordials you used, or perhaps, which prime numbers you used to generate the primordials in the first place, as, as far as I know, there is no way to reverse the primordial and discover the prime factors, as it has many prime factors, and multiple pairs of primes generate the same primordial.  So basically, you can find new primes to use by recursing several simple primes many many times, using my "Find Another Prime" function above, then use those primes to find one or more primordials, and perhaps use the recurrance of the prime factors as the values to encrypt/decrypt the message using public key/private key or the primes themselves and incorporate the primordials in some other way.
+
+# Copyright, Improvements, and Using For Your Own Devices
+
+This is as yet unpublished work, however, I am publishing it now on the internet through this Github account in order to seek comment, enlightenment, and opinion on my work, so feel free to borrow it, improve it, and use it in your work, though proper credit to me is required.  And I would appreciate if you resubmit any improvements to me so that I may continue to expand this compendium on this new field of mathematics.
+
+Copyright 2016 Chris Pergrossi
+
+And this technique was discovered by myself only on 26 October 2016 and 27 October 2017, with additional help given by Alex Mcghee during the proving stage.
+
+Thanks!
