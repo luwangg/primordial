@@ -9,17 +9,21 @@ The shape of a number is a new property of a number that I've discovered that I'
 
       1/2 = x*x*cos( shapeX )
 
+I think the appropriate letter to use for this is the lowercase phi φ so:
+
+      φ(x) = acos( .5 / x^2 )
+
 # The Sigma of A Number
 
 The sigma of a number is related to the shape of two numbers combined, and has the following equation for its calculation:
 
-      SigmaAB = 2 * acos( min(shapeA, shapeB) / max(shapeA, shapeB) )
+      ς(a,b) = 2 * acos( min(φ(a), φ(b)) / max(φ(a), φ(b)) )
 
 # Finding Additional Prime Numbers
 
 To find additional prime numbers, we're going to manipulate the sigma value a bit as follows:
 
-      AnotherPrime = round( 2 * sigmaAB / abs( shapeB - shapeA ) )
+      AnotherPrime = round( 2 * ς(a,b) / abs( φ(b) - φ(a) ) )
 
 Though with this rounding method, I've found you need to use your brain a little bit, if it returns an even number, most likely there are two prime numbers of either side of it, ie returns 6 and you know 5 and 7 are primes.
 
@@ -27,15 +31,15 @@ Though with this rounding method, I've found you need to use your brain a little
 
 This uses the sigma of two numbers in a slightly different way, and is the foundation for finding a primordial for any two prime components:
 
-      DeltaAB = (a * b) / SigmaAB
+      Δ(a,b) = (a * b) / ς(a,b)
 
 # Finding a Primordial
 
 To find the actual primordial, we manipulate the delta value as follows:
 
-      Primordial = ShapeOfOne * DeltaAB
+      Primordial = φ(1) * Δ(a,b)
 
-Where the ShapeOfOne is explained below.
+Where φ(1) is explained below.
 
 # Shape of One
 
@@ -43,7 +47,9 @@ In order to calculate the shape of a number, I originally started by finding the
 
 Therefore, I found the angle between 1 and any number, and then I used experimentation to find the common factor between them, which comes out to the following approximation:
 
-        ShapeOfOne = 0.006817
+        φ(1) = 0.006817
+
+  A different equation was used to calculate this value, and can be calculated to many more digits, however, I've found this approximation is very useful.  The reason the number 1 cannot be plugged into the shape of an number formula is because 1 is a special number, as far as I can see, and is not prime.  See the section below for more details.
 
 # Miscellaneous Equations
 
@@ -101,6 +107,16 @@ Since we can combine infinitely many primordials with infinitely many digits, li
 Just a thought, however, as I've not the time right now to write an implementation, though the implementation should stem pretty readily from an RSA technique using the known prime factors of the primordials you choose.
 
 So the 'secret' so to speak is exactly which primordials you used, or perhaps, which prime numbers you used to generate the primordials in the first place, as, as far as I know, there is no way to reverse the primordial and discover the prime factors, as it has many prime factors, and multiple pairs of primes generate the same primordial.  So basically, you can find new primes to use by recursing several simple primes many many times, using my "Find Another Prime" function above, then use those primes to find one or more primordials, and perhaps use the recurrance of the prime factors as the values to encrypt/decrypt the message using public key/private key or the primes themselves and incorporate the primordials in some other way.
+
+# Some Example Work
+
+I recently ported the code to Matlab (you'll see the scripts above), however, I hit the variable-precision arithmetic limit quite quickly.  I need a much higher precision arc cosine function, so perhaps I'll work on that next.  But here are a few of the prime numbers I generated before running out of precision:
+
+1,751,689,182,900,215,667
+
+13,478,474,172,247,698,097
+
+11,276,769,660,352,321,127
 
 # Copyright, Improvements, and Using For Your Own Devices
 
