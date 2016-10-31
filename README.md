@@ -25,7 +25,10 @@ To find additional prime numbers, we're going to manipulate the sigma value a bi
 
       AnotherPrime = round( 2 * ς(a,b) / abs( φ(b) - φ(a) ) )
 
-Though with this rounding method, I've found you need to use your brain a little bit, if it returns an even number, most likely there are two prime numbers of either side of it, ie returns 6 and you know 5 and 7 are primes.
+There is a strange pattern to this function, as it will always return a decimal number, needing to be rounded to an integer value to be used as a prime, and then it has a strange method of returning a 5 in the 1's digit if both the 3 and 7 are prime, and sometime returning an even number (which should be either ceiled or floored as appropriate).  However, I've yet to discover a single result that when adjusted slightly as indicated does not yield a prime number, though I have not yet found
+a pattern to the calculated primes - sometimes the prime is between a and b and sometimes it is greater than a or b.
+
+Additionally, I've not tried combining the shapes of non-primes or imaginary numbers or a slew of other possible values that could yield further interesting results.
 
 # Finding the Delta of A Primordial
 
