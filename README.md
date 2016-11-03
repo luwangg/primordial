@@ -37,6 +37,10 @@ I assumed the cosine of some shape was equal to zero, and created the following 
 
 And then solved for values, indicating the following: 0 has an infinite number of prime factors, both unique and redundant, but does not have itself as a basic factor.  This is required for the equation to evaluate to true.
 
+This suggests the following: All numbers are factors of zero, for it to have infinitely many factors that are both unique and not unique.  This suggests that ALL numbers are factors of zero, meaning, if you multiply EVERY number together, you get zero.
+
+Interesting!
+
 ## Shape of One and Negative One
 
 We can also solve for cosine equal to 1 and -1, and get the following:
