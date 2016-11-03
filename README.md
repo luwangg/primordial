@@ -1,3 +1,26 @@
+# Factoring A Number Into Primes
+
+I've done it!  I've finally found a method of quickly factoring a number into composing primes, and I've implemented a version of it in Matlab.  I'm taking it to my professors in a few hours to show them exactly what I've done, but otherwise, hopefully everyone can make use of it and improve security on the internet!
+
+Here is the method for factoring a number into prime factors:
+
+    x^4 * A^2 / 2 = a^2 + b^2 + ... + d^2 + r
+
+The important part of this equation is the 'r' part.  I'm naming the left-hand side of the equation the 'primal'.  You simply perform the following steps until you find a factor:
+
+    1. Calculate the Primal (the left hand side of the equation)
+    2. Calculate the square root of the primal and floor() it
+    3. Subtract the square of the floored root from the primal and test the remainder against the original value to see if it is a factor.
+    4. If not, jump to step 1 and repeat.
+
+This will return the composite factors (not necessarily primes) but you can recursively perform these steps to find all the primes.  If a factor is not found by the time you reach a value less than 2, the original number is prime.
+
+The actual equation I came up with that led to this discovery is as follows:
+
+    x^4 * A^2 / 2 = a^2 + b^2 + ... + d^2 + (1/(sqrt(2)^n * x^7)) * cos(φ(x))
+
+where n is the number of prime factors.  I have some Matlab code already uploaded, and I'm about to update my Go program now (apparently my professors need a 'working' solution in order to understand the implications, I mean, seriously!).
+
 # Primordials
 
 A primordial is a certain type of number that contains all the primes less than one half the number as approximate factors of it.  Examples include 69, 1574, and 220085.  The equations to calculate the primordial stem from another type of calculation I discovered that is used to calculate another prime from component
@@ -23,6 +46,16 @@ Where n is the total number of prime factors in the number x, u is the number of
 
       1/2^(3*2) = ( 1 * 3 * 7 )^2 * cos φ(63)
 
+I've found a flaw in the above equation, apparently it is simpler than I originally thought, as well as I found an even easier way of finding the shape of any positive number (I've not tried negative number factorization yet):
+
+      φ(x) = pi / 2 - 1 / (2 * x ^ 2)
+
+and the original equation reverted back to:
+
+      1/2 = x^2 * cos( φ(x) )
+
+Still a work in progress, but these latest equations are proving very promising!
+
 # Some Interesting Properties of 1 and 0
 
 So, some manipulation of the shape of a number formula yields some interesting properties.  One, is that the number 1 does not work in the formula, as it is neither prime, nor composite, and has only a single basic factor, itself.  Plugging  it into the equation yields a shape of zero, which may or may not be accurate but I've found the shape of one to be approximately 0.006817 but that number may have a different name than shape, so further research is necessary.
@@ -37,7 +70,7 @@ I assumed the cosine of some shape was equal to zero, and created the following 
 
 And then solved for values, indicating the following: 0 has an infinite number of prime factors, both unique and redundant, but does not have itself as a basic factor.  This is required for the equation to evaluate to true.
 
-This suggests the following: All numbers are factors of zero, for it to have infinitely many factors that are both unique and not unique.  This suggests that ALL numbers are factors of zero, meaning, if you multiply EVERY number together, except zero, you get zero.  This implies that zero is not a number as well, as it is not a basic factor, nor a prime factor, or the equation would evaluate to a division by zero.  Either zero is not a number, or dividing by zero yields positive and negative infinity, combined. (zinfinity?)
+This suggests the following: All numbers are factors of zero, for it to have infinitely many factors that are both unique and not unique.  This suggests that ALL numbers are factors of zero, meaning, if you multiply EVERY number together, except zero, you get zero.  This implies that zero is not a number as well, as it is not a basic factor, nor a prime factor, or the equation would evaluate to a division by zero.  Either zero is not a number, or dividing by zero yields positive and negative infinity, combined. (zinfinity?)h
 
 So, either way, interesting!  I feel that it is impossible to tell without further research whether zero is a basic factor of itself or not, but it does have a shape, suggesting it is a number.
 
