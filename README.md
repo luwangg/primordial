@@ -13,11 +13,54 @@ I think the appropriate letter to use for this is the lowercase phi φ so:
 
       φ(x) = acos( .5 / x^2 )
 
+Additional Work (2 Nov 2016):
+
+I have done more work on shapes of non-prime numbers and have found the following formula to be a more general form of the shape of a number:
+
+      1/2^(n*u) = ( Γ b(i) )^2 cos φ(x)
+
+Where n is the total number of prime factors in the number x, u is the number of unique factors in the number x, Γ b(i) is the product of all the basic factors of a prime number, meaning the unique prime factors and the number 1.  So, for example, the shape of the number 63 is as follows:
+
+      1/2^(3*2) = ( 1 * 3 * 7 )^2 * cos φ(63)
+
+# A New Trigonometric Approximation
+
+Stemming from this recent work, I've also discovered a new approximation to sin, cos, tan, arcsin, arccos, and arctan which I'll describe here:
+
+I began with attempts to find sigma of a composite number as follows:
+
+      ( ( 2^(n*u) * ( Γ b(i) )^2 ) ^ 2 - 1 ) ^ 0.5 / ( 2^(n*u) * ( Γ b(i) ) ^ 2 )
+
+And plugged it into the shape of a number formula to get the following:
+
+      acos( ... ) * 2^(n*u) * ( Γ b(i) )^2 ~= 1
+
+Where the ... is the formula directly above.
+
+From this equation, I derived the following approximations for cos and acos:
+
+      acos( sqrt( a ^ 2 - 1) / a ) = 1 / a
+      sqrt( a ^ 2 - 1 ) / a = cos( 1 / a )
+
+And the following for sin and asin:
+
+      asin( 1/a ) = sin( 1/a ) = 1/a
+
+The limit on a is that it must be greater than 1 and the approximations approach the actual values as a approaches infinity.
+
 # The Sigma of A Number
 
-The sigma of a number is related to the shape of two numbers combined, and has the following equation for its calculation:
+The sigma of a number is related to the shape of two prime numbers combined, and has the following equation for its calculation:
 
       ς(a,b) = 2 * acos( min(φ(a), φ(b)) / max(φ(a), φ(b)) )
+
+Additional Work (2 November 2016):
+
+Some additional work on the sigma of a composite number has yielded me the following equation:
+
+      ς(x) = ( 2 * x ) / ( φ(1) * ( Γ b(i) ) ^ 2 * 2 ^ (n * u) )
+
+This is the current area of research I'm working on right now, however.
 
 # Finding Additional Prime Numbers
 
