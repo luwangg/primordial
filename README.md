@@ -37,9 +37,9 @@ I assumed the cosine of some shape was equal to zero, and created the following 
 
 And then solved for values, indicating the following: 0 has an infinite number of prime factors, both unique and redundant, but does not have itself as a basic factor.  This is required for the equation to evaluate to true.
 
-This suggests the following: All numbers are factors of zero, for it to have infinitely many factors that are both unique and not unique.  This suggests that ALL numbers are factors of zero, meaning, if you multiply EVERY number together, you get zero.
+This suggests the following: All numbers are factors of zero, for it to have infinitely many factors that are both unique and not unique.  This suggests that ALL numbers are factors of zero, meaning, if you multiply EVERY number together, except zero, you get zero.  This implies that zero is not a number as well, as it is not a basic factor, nor a prime factor, or the equation would evaluate to a division by zero.  Either zero is not a number, or dividing by zero yields positive and negative infinity, combined. (zinfinity?)
 
-Interesting!
+So, either way, interesting!  I feel that it is impossible to tell without further research whether zero is a basic factor of itself or not, but it does have a shape, suggesting it is a number.
 
 ## Shape of One and Negative One
 
