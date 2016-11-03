@@ -23,7 +23,43 @@ Where n is the total number of prime factors in the number x, u is the number of
 
       1/2^(3*2) = ( 1 * 3 * 7 )^2 * cos φ(63)
 
-# A New Trigonometric Approximation
+# Some Interesting Properties of 1 and 0
+
+So, some manipulation of the shape of a number formula yields some interesting properties.  One, is that the number 1 does not work in the formula, as it is neither prime, nor composite, and has only a single basic factor, itself.  Plugging  it into the equation yields a shape of zero, which may or may not be accurate but I've found the shape of one to be approximately 0.006817 but that number may have a different name than shape, so further research is necessary.
+
+Using some manipulation, we can see there are negative values possible in the shape of a number formula, so negative shapes are feasable.  Meaning we should be able to factor negative numbers into their basic primes as well, opening up the entire range of imaginary and real numbers to shapes and factorization and prime number theory.
+
+## Shape of Zero
+
+I assumed the cosine of some shape was equal to zero, and created the following formula:
+
+      0 = 1 / (2 ^ (n*u) * (Γ b(i) )^2 )
+
+And then solved for values, indicating the following: 0 has an infinite number of prime factors, both unique and redundant, but does not have itself as a basic factor.  This is required for the equation to evaluate to true.
+
+## Shape of One and Negative One
+
+We can also solve for cosine equal to 1 and -1, and get the following:
+
+      1 = 1 / (2 ^ (n*u) * (Γ b(i) )^2 )
+
+And we see the only way for this to evalue to true is for the denominator to be equal to 1, so we solve for that and find that 1 has zero prime factors and zero unique prime factors, but does contain itself as a basic factor.  Therefore, one is a factor of itself, but is neither prime nor composite.
+
+## Factoring Negative Numbers
+
+It also shows that 1 is a factor of every number, both positive and negative, and negative one is a factor of every negative number, using a similar method.  This allows us to factor all negative numbers into composing basic factors.
+
+It also shows that you cannot use the negative basic factors of a positive number's composing basic factors to 'simulate' the factors of a composite number.  I.e. you cannot say -1, 1 and -2 are factors of +2 because there is only 1 prime factor and 1 unique prime factor of +2.
+
+There is, however, an interesting thought I've just had, that if you're counting the number of negative factors of a positive number you merely flip the signs on both the number of prime factors and the number of unique prime factors, for example, n = -1 and u = -1, then the equation works out the same, with -1 and -2 being the basic factors (and -2 being the prime factor) but this line of thinking I think will prove false, as I'm using the actual count of prime and unique prime factors in my equation, so, just a thought but I believe my earlier proof still stands.
+
+## Aeon's Number
+
+It is with this knowledge, that the actual shape of 1 is zero, and the shape of zero is +-pi/2, that I move to rename my "ShapeOfOne" variable with 0.006817 as its approximate value to Aeon's Number, using the uppercase letter A to signify it.
+
+# Several New Trigonometric Approximations
+
+## cosine and inverse cosine
 
 Stemming from this recent work, I've also discovered a new approximation to sin, cos, tan, arcsin, arccos, and arctan which I'll describe here:
 
@@ -39,14 +75,22 @@ Where the ... is the formula directly above.
 
 From this equation, I derived the following approximations for cos and acos:
 
-      acos( sqrt( a ^ 2 - 1) / a ) = 1 / a
-      sqrt( a ^ 2 - 1 ) / a = cos( 1 / a )
+      acos( sqrt( a ^ 2 - 1) / a ) ~= 1 / a
+      sqrt( a ^ 2 - 1 ) / a ~= cos( 1 / a )
+
+## sine and inverse sine
 
 And the following for sin and asin:
 
-      asin( 1/a ) = sin( 1/a ) = 1/a
+      asin( 1/a ) ~= sin( 1/a ) ~= 1/a
 
 The limit on a is that it must be greater than 1 and the approximations approach the actual values as a approaches infinity.
+
+## tangent and inverse tangent
+
+Here is another trigonometric approximation that I found while trying to solve my equations, using a bit of geometry and the Pythagorean theorem:
+
+      atan( 1 / b - 1 / a ) ~= tan( 1 / b - 1 / a ) ~= 1 / b - 1 / a
 
 # The Sigma of A Number
 
@@ -58,7 +102,7 @@ Additional Work (2 November 2016):
 
 Some additional work on the sigma of a composite number has yielded me the following equation:
 
-      ς(x) = ( 2 * x ) / ( φ(1) * ( Γ b(i) ) ^ 2 * 2 ^ (n * u) )
+      ς(x) = ( 2 * x ) / ( A * ( Γ b(i) ) ^ 2 * 2 ^ (n * u) )
 
 This is the current area of research I'm working on right now, however.
 
@@ -85,9 +129,13 @@ To find the actual primordial, we manipulate the delta value as follows:
 
       Primordial = φ(1) * Δ(a,b)
 
-Where φ(1) is explained below.
+      CORRECTION:
 
-# Shape of One
+      Primordial = A * Δ(a,b)
+
+Where φ(1) (or A) is explained below.
+
+# Shape of One - Renamed to Aeon's Number "A"
 
 In order to calculate the shape of a number, I originally started by finding the angle between two numbers, using the modified Pythagorean formula.  I then found that in order to find the shape of a standalone number, you needed to take the shape between zero and the number, however, to take the shape between zero and the number is impossible as the equation would collapse into a simple 0 = 0 or similar.
 
@@ -95,7 +143,11 @@ Therefore, I found the angle between 1 and any number, and then I used experimen
 
         φ(1) = 0.006817
 
-  A different equation was used to calculate this value, and can be calculated to many more digits, however, I've found this approximation is very useful.  The reason the number 1 cannot be plugged into the shape of an number formula is because 1 is a special number, as far as I can see, and is not prime.  See the section below for more details.
+        CORRECTION: I have found the true shape of 1 to be zero, and the shape of zero to be +- pi/2 so I'm renaming this new constant to be Aeon's Number, or an uppercase A.
+
+        A ~= 0.006817
+
+  A different equation was used to calculate this value, and can be calculated to many more digits, however, I've found this approximation is very useful.  See the section below for more details.
 
 # Miscellaneous Equations
 
@@ -140,9 +192,9 @@ Here I'm including some extra equations I used and intermediate formulae that I'
 
       ThetaAB = 5*a + 5*b - 3absin(thetaA * thetaB)
 
-    * Here is an additional trigonometric identity that isn't accurate, but spawned from my work so I'd like it stored somewhere in case someone can make sense of it:
+    * Here is an additional trigonometric identity that is a great approximation, but spawned from my work so I'd like it stored somewhere in case someone can make sense of it:
 
-        (b - a) / 2 = tan( 1 / b - 1 / a )
+        1 / b - 1 / a = tan( 1 / b - 1 / a )
 
 # Perfect Encryption Using Primordials (a conjecture)
 
