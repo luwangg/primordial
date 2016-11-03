@@ -92,6 +92,12 @@ Here is another trigonometric approximation that I found while trying to solve m
 
       atan( 1 / b - 1 / a ) ~= tan( 1 / b - 1 / a ) ~= 1 / b - 1 / a
 
+## possible uses in computation and calculus
+
+These new trignometric approximations allow for very, very rapid approximation of the trigonometric functions, with exact accuracy possible using larger values, allowing for a very finely graduated curve of accuracy vs computation time.
+
+Another possible use is in the calculation of derivatives and integrals with these formulae in them by allowing for substitution and approximation.  You would not even need to use a u substitution, except for solving, perhaps, but the trigonometric function would be a direct one-to-one plug in (or vice versa).
+
 # The Sigma of A Number
 
 The sigma of a number is related to the shape of two prime numbers combined, and has the following equation for its calculation:
