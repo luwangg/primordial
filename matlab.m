@@ -1,3 +1,38 @@
+function [ factor ] = FindAFactor(a)
+
+  primal = a^4 * 0.006817^2 / 2;
+
+  for i = 1:50000000
+
+    if mod(a, primal) == 0
+        factor = primal;
+        return
+    end
+
+    root = floor(sqrt(primal));
+
+    if mod(a, root) == 0
+        factor = root;
+        return
+    end
+
+    primal = primal - root^2;
+
+    if primal < 2
+        factor = 1;
+        return
+    end
+
+  end
+
+end
+
+function [ shape ] = FindShape2(x)
+
+  shape = pi / 2 - 1 / (2 * x *x)
+
+end
+
 function [ shape ] = FindShape(x)
 
   digits = 2^29;
