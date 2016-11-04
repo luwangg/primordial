@@ -11,6 +11,7 @@ The important part of this equation is the 'r' part.  I'm naming the left-hand s
     1. Calculate the Primal (the left hand side of the equation)
     2. Calculate the square root of the primal and floor() it
     3. Subtract the square of the floored root from the primal and test the remainder against the original value to see if it is a factor.
+    4. There are a couple other values I've found could be factors as well, such as the modulus of the modulus using the remainder (double mod), as well as  a few special cases with a 5 in the 1s place or a 2.
     4. If not, jump to step 1 and repeat.
 
 This will return the composite factors (not necessarily primes) but you can recursively perform these steps to find all the primes.  If a factor is not found by the time you reach a value less than 2, the original number is prime.
@@ -20,6 +21,18 @@ The actual equation I came up with that led to this discovery is as follows:
     x^4 * A^2 / 2 = a^2 + b^2 + ... + d^2 + (1/(sqrt(2)^n * x^7)) * cos(φ(x))
 
 where n is the number of prime factors.  I have some Matlab code already uploaded, and I'm about to update my Go program now (apparently my professors need a 'working' solution in order to understand the implications, I mean, seriously!).
+
+## An Alternative Method for Factoring Composite Numbers
+
+I've developed a second method of factoring prime numbers that may be even easier computationally.  The previous method, while very fast, relies on very large numbers and errors creep into the solution very easily, making  it difficult to factor the types of primes used in SSL certificates.  Howevever, this alternative method is a bit easier to compute, and returns a ballpark figure for each prime in succession, within a few digits in each direction.
+
+    a = (pi / 2 - 1 / x) * pi / (8 * x * A * cos( shape(x) )
+
+    a = (pi / 2 - 1 / x) * pi * x / (2 * A)
+
+    MinimumFactor(x) ~= 2 * a ^ .25
+
+Then, this equation is applied recursively, finding each factor directly.  The minimum factor is found to within a few digits of the correct minimum factor, though.
 
 # Primordials
 

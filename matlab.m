@@ -1,3 +1,24 @@
+function [ minFactor ] = FindMinPrimeFactor(x)
+
+  a = vpa((pi / 2 - 1 / x) * pi * x / (2 * 0.0068178951732107591857632195678137149876321876354431973), 100000)
+
+  minFactor = vpa(floor(2 * a^.25), 100000);
+
+  for i = -10000:1:10000
+
+    if minFactor+i <= 0
+      continue
+    end
+
+    if mod(x, minFactor+i) == 0
+      minFactor = minFactor + i
+      return
+    end
+
+  end
+
+end
+
 function [ factor ] = FindAFactor(a)
 
   primal = a^4 * 0.006817^2 / 2;
